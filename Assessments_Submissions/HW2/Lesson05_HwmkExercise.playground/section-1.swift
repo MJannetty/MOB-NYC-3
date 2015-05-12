@@ -73,12 +73,18 @@ knockknock()
 // That parameter will be an int that let's us specify how many times we want to knock
 // Within the function we have a loop that runs x ammount of times that calls the knock knock function
 
+//for loop
+for x in 1...10 {
+    println(x)
+}
+
+
 func knockMultipleTimes (numberoftimes:Int) {
     for (var x = 1; x <= numberoftimes; x++) {
         knockknock()
     }
 }
-var numberoftimes = 2
+var numberoftimes = 7
 knockMultipleTimes(numberoftimes)
 
 
@@ -86,6 +92,11 @@ knockMultipleTimes(numberoftimes)
 // We will write a replyWhoIsHere function that accepts 2 parameters
 // Parameter one will be a firstname (String), and parameter two will be the homeCountry (also String)
 // The function will just print "It's me, {firstname}, from {homeCountry}"
+
+func replyWhoIsHere(firstname:String, homeCountry:String) {
+    println("It's me, \(firstname), from \(homeCountry)")
+}
+replyWhoIsHere("Megan", "USA")
 
 
 // Cool that worked! Let's say we want to reply with our age instead of home country!
@@ -115,3 +126,10 @@ let age = currentYear - yearOfBirth
 // Call replyWhoIsHere
 
 // Call tellNameAndAge
+
+
+func convertMeterstoFeet(meters:Double) -> Double {
+    let feetPerMeter = 3.28
+    let feet = feetPerMeter * meters
+    return feet
+}

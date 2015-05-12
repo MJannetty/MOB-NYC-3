@@ -7,7 +7,7 @@ var name = "Megan"
 var age = "30"
 
 // TODO: Print "Hello {whatever the value of name is}, you are {whatever the value of age is} years old!"
-println("hello, \(name)")
+println("hello, \(name), you are \(age)")
 
 // TODO: Print “You can drink” below the above text if the user is above 21. If they are above 18, print “you can vote”. If they are above 16, print “You can drive”
 if age >= "21.0" {
@@ -22,6 +22,20 @@ if age > "18" {
 
 // TODO: Print the first fifty multiples of seven minus one (e.g. the first three multiples are 7, 14, 21. The first three multiples minus one are 6, 13, 20)
 
+(1 * 7) - 1
+(2 * 7) - 1
+(3 * 7) - 1
+(50 * 7) - 1
+//
+//var x = 7 - 1
+//while x <= 50 {
+//    x = x + 1
+//}
+
+for (var x = 1; x <= 50; x++) {
+    println((x * 7) - 1)
+}
+
 // TODO: Create a constant called number
 let number = 9
 
@@ -30,9 +44,10 @@ let number = 9
 if number % 2 != 0  {
     println("Not Even")
 }
-//if constant
 
 // TODO: Print out "Hello {whatever the value of name is}, your name is {however long the string name is} characters long!. Use countElements()
+var counted = countElements("idhwihdiw")
+
 
 // TODO: Print the sum of one hundred random numbers. Use rand() to generate random numbers.
 
