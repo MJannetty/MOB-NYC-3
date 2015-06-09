@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C58C28C1B26367100BE3B05 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C58C28B1B26367100BE3B05 /* Functions.swift */; };
 		0C5967F51B1D22870053BF0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5967F41B1D22870053BF0B /* AppDelegate.swift */; };
 		0C5967F71B1D22870053BF0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5967F61B1D22870053BF0B /* ViewController.swift */; };
 		0C5967FA1B1D22870053BF0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5967F81B1D22870053BF0B /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C58C28B1B26367100BE3B05 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		0C5967EF1B1D22870053BF0B /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C5967F31B1D22870053BF0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C5967F41B1D22870053BF0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				0C5967FB1B1D22870053BF0B /* Images.xcassets */,
 				0C5967FD1B1D22870053BF0B /* LaunchScreen.xib */,
 				0C5967F21B1D22870053BF0B /* Supporting Files */,
+				0C58C28B1B26367100BE3B05 /* Functions.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				0C5967F71B1D22870053BF0B /* ViewController.swift in Sources */,
 				0C5967F51B1D22870053BF0B /* AppDelegate.swift in Sources */,
+				0C58C28C1B26367100BE3B05 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +413,7 @@
 				0C5968101B1D22870053BF0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C5968111B1D22870053BF0B /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				0C5968131B1D22870053BF0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
