@@ -21,7 +21,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0hL-FJ-rBQ"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lRX-4Z-EIk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zfb-wc-mIz">
@@ -33,7 +33,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gt3-Z2-v4I"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XvZ-Uy-Y1G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nuO-ls-7pS">
@@ -45,7 +45,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2cS-Mw-TLV"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Trq-l6-qux"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yBh-oi-gt1">
@@ -57,7 +57,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ooO-rB-fbF"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2AE-ki-y5M"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WzV-mu-QGY">
@@ -69,7 +69,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1D7-hM-7jC"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qgt-3k-gMH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z8x-dk-WOs">
@@ -81,7 +81,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uGN-vS-i0V"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZjZ-Ej-uwL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cNt-AN-MSQ">
@@ -106,7 +106,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4kh-Q4-V9B"/>
+                                    <action selector="didTapClear:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jia-9i-z2p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0wS-lH-hSm">
@@ -165,7 +165,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="waj-SB-1UT"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8zI-zS-bbt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZkY-fO-EYt">
@@ -177,7 +177,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Hz6-hp-L1k"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cxC-O3-ATj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A0E-Ev-gDf">
@@ -189,7 +189,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FYB-Ix-4l2"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nkh-aZ-OdH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VkE-Es-zmg">
@@ -201,7 +201,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0R7-uu-rqd"/>
+                                    <action selector="didTapInt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hbe-xU-7ty"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z60-3j-gMd">
@@ -213,7 +213,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uKJ-gk-eaH"/>
+                                    <action selector="pressedDecimal:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HlP-k4-TQ1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YB3-A2-3Ji">
@@ -226,7 +226,6 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addition:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="L6r-5N-EHA"/>
                                     <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Oz-o4-7wA"/>
                                 </connections>
                             </button>
@@ -240,7 +239,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedEquals:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="Dwl-Bj-D1Y"/>
+                                    <action selector="pressedEquals:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rbZ-ov-FvL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3kZ-dW-1JC">

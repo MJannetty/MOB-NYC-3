@@ -12,97 +12,78 @@ class ViewController: UIViewController {
     var operand1: Float = 0
     var operation : String?
     var operand2:Float?
-    var inputValue : String = ""
-    var numberArray : [String] = []
-    var entireCalc : [Double] = []
-    var secondHalfCalc : [Double] = []
-    var oneDot = 0
-    var valueToConvert : Double {
-        // Get the inputValue and convert to a Double
-        return NSString(string:self.inputValue).doubleValue
-    }
-    
+
     @IBOutlet weak var outputValuelabel: UILabel!
     
-
-    @IBAction func onButtonPressed(sender: UIButton) {
-        let buttontext = sender.titleLabel!.text!
-        if buttontext == "AC" {
-            self.inputValue = "0"
-            self.outputValuelabel.text = self.inputValue
-            self.operation = nil
-        } else if buttontext == "." {
-            oneDot += 1
-            if oneDot == 1 {
-            self.inputValue += buttontext
-            
-//                if currentString == "0" {
-//                    self.screenLabel.text = digit
-//                } else {
-//                    self.screenLabel.text = currentString + digit
-//                }
-//                //
-                //
-//            if self.operation !=nil && self.operand2 == nil{
-//                    currentString = ""
-//                }
-            self.outputValuelabel.text = self.inputValue
-                updateOperand()
-            }
+    @IBAction func didTapInt(button: UIButton) {
+        var digit:String = button.titleLabel!.text!
+        var buttontext:String = self.outputValuelabel.text!
+        if self.operation != nil && self.operand2 == nil {
+            buttontext = "0"
         }
-        else
-        //appending the array
-        {
-            println(self.outputValuelabel.text!)
-            if self.outputValuelabel.text! == "0" {
-                self.outputValuelabel.text = buttontext
-            } else {
-                self.outputValuelabel.text = self.outputValuelabel.text! + buttontext
-            }
-            
-            self.numberArray.append(buttontext)
-            println("\(numberArray)")
-            self.inputValue += buttontext
-            self.outputValuelabel.text = self.inputValue
+        if buttontext == "0" {
+            self.outputValuelabel.text = digit
+        } else {
+            self.outputValuelabel.text = buttontext + digit
         }
+        updateOperand()
     }
     
-    @IBAction func addition(sender: UIButton) {
-        self.entireCalc.append(self.valueToConvert)
-        println("\(entireCalc) value to convert +")
-        numberArray.removeAll()
-        oneDot = 0
-        self.outputValuelabel.text = ""
+    @IBAction func didTapClear(button: UIButton) {
+        self.outputValuelabel.text = "0"
+        self.operation = nil
+        self.operand1 = 0
+        self.operand2 = nil
+        
         updateOperand()
-        //secondHalfCalc = self.valueToConvert
     }
+    
+    @IBAction func pressedDecimal(button: UIButton) {
+        //check if current string has decimal
+        var currentString:String = self.outputValuelabel.text!
+        
+        if self.operation != nil && self.operand2 == nil {
+            currentString = "0"
+        }
+        
+        if currentString.rangeOfString(".") == nil {
+            self.outputValuelabel.text = currentString + "."
+        }
+        updateOperand()
+    }
+
     @IBAction func pressedNegation(button: UIButton) {
-        var inputValue:String = self.outputValuelabel.text!
-        let firstChar = inputValue[inputValue.startIndex]
+        var buttontext:String = self.outputValuelabel.text!
+        let firstChar = buttontext[buttontext.startIndex]
         println(firstChar)
         if firstChar == "-" {
-            self.outputValuelabel.text = dropFirst(inputValue)
+            self.outputValuelabel.text = dropFirst(buttontext)
         } else {
-            self.outputValuelabel.text = "-" + inputValue
-            updateOperand()
+            self.outputValuelabel.text = "-" + buttontext
         }
+        updateOperand()
     }
     
     func updateOperand(){
-        var inputValue:String = self.outputValuelabel.text!
+        var buttontext:String = self.outputValuelabel.text!
         if self.operation == nil {
-            self.operand1 = (inputValue as NSString).floatValue
-        } else{
-            self.operand2 = (inputValue as NSString).floatValue
+            self.operand1 = (buttontext as NSString).floatValue
+        } else {
+            self.operand2 = (buttontext as NSString).floatValue
         }
+        
+        println("Operand 1: \(self.operand1)")
+        println("Operand 2: \(self.operand2)")
+        
     }
     
     @IBAction func pressedOperation(button: UIButton) {
         self.operation = button.titleLabel!.text!
-        
+    
     }
     
-    @IBAction func pressedEquals(sender: UIButton) {
+    @IBAction func pressedEquals(button: UIButton) {
+        
         if let operation =  self.operation {
             //do math
             println(operation)
@@ -114,7 +95,7 @@ class ViewController: UIViewController {
                 case "-":
                 //subtraction
                     result=self.operand1 - self.operand2!
-                case "*":
+                case "x":
                 //multiply
                 result=self.operand1 * self.operand2!
                 case "/":
@@ -126,30 +107,4 @@ class ViewController: UIViewController {
             self.outputValuelabel.text! = "\(result)"
         }
     }
-    
-
-    
-    
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
