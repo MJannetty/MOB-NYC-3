@@ -13,6 +13,7 @@
 		0C065A8F1B3A1A47000B40C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C065A8E1B3A1A47000B40C2 /* Images.xcassets */; };
 		0C065A921B3A1A47000B40C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C065A901B3A1A47000B40C2 /* LaunchScreen.xib */; };
 		0C065A9E1B3A1A48000B40C2 /* Dogue_MatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C065A9D1B3A1A48000B40C2 /* Dogue_MatchTests.swift */; };
+		0CBF3A551B3CD82600BBE773 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBF3A541B3CD82600BBE773 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		0C065A971B3A1A47000B40C2 /* Dogue MatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dogue MatchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C065A9C1B3A1A48000B40C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C065A9D1B3A1A48000B40C2 /* Dogue_MatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dogue_MatchTests.swift; sourceTree = "<group>"; };
+		0CBF3A541B3CD82600BBE773 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				0C065A8E1B3A1A47000B40C2 /* Images.xcassets */,
 				0C065A901B3A1A47000B40C2 /* LaunchScreen.xib */,
 				0C065A851B3A1A47000B40C2 /* Supporting Files */,
+				0CBF3A541B3CD82600BBE773 /* Model.swift */,
 			);
 			path = "Dogue Match";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CBF3A551B3CD82600BBE773 /* Model.swift in Sources */,
 				0C065A8A1B3A1A47000B40C2 /* ViewController.swift in Sources */,
 				0C065A881B3A1A47000B40C2 /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				0C065AA31B3A1A48000B40C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C065AA41B3A1A48000B40C2 /* Build configuration list for PBXNativeTarget "Dogue MatchTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				0C065AA61B3A1A48000B40C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

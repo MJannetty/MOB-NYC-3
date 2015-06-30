@@ -1,34 +1,84 @@
 //
-//  ViewController.swift
+//  Model.swift
 //  Dogue Match
 //
-//  Created by Megan Jannetty on 6/23/15.
+//  Created by Megan Jannetty on 6/25/15.
 //  Copyright (c) 2015 Megan Jannetty. All rights reserved.
 //
 
+//Create the user class and its parameters
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var dataTextView: UITextView!
-    @IBAction func onDataTapped(sender: AnyObject) {
-        self.getDogData()
-    }
+class User {
+    var name: String?
+    var email: String?
+    var location: String?
+    var preferredBreed: String?
+    var preferredAge: String?
+    var favoriteDogs: [Dog] = []
+    
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class Dog {
+    var location: String
+    var breed: String
+    var pictureUrl: String
+    var email: String
+    var dogPicture: UIImage?
+    var name: String?
+    
+    init(pictureUrl:String, breed: String, location:String, email:String, dogPicture: UIImage) {
+        self.location = location
+        self.pictureUrl = pictureUrl
+        self.breed = breed
+        self.email = email
+//        self.dogPicture = SDImages(name: url, url: url)
     }
     
-    func getDogData() {
-        println("getting you a dog") 
+}
+
+class PetFinderApi {
+    
+    let base_api_url = "http://api.petfinder.com/pet.find?key=762075e98ad072fbe909d4451bf3b896&anial=dog&format=json&output=full"
+
+    var breed: String?
+    var size: String?
+    var sex: String?
+    var location: String?
+    var age: String?
+    var offset: Int?
+    var count: Int = 25
+    
+    func buidUrl() -> String {
+        var url = self.base_api_url;
+        if let breed = self.breed {
+            url += "&breed=" + breed
+        }
         
-        let dataUrlStr = ("http://api.petfinder.com/pet.getRandom?format=json&key=762075e98ad072fbe909d4451bf3b896&animal=dog&output=full")
-        let url = NSURL(string: dataUrlStr)
+        if let size = self.size {
+            url += "&size=" + size
+        }
+        
+        if let location = self.location {
+            url += "&location=" + location
+        }
+        
+        if let age = self.age {
+            url += "&age=" + age
+        }
+        
+        if let offset = self.offset {
+            url += "&offset=" + "\(offset)"
+        }
+        
+        url += "&offset=" + "\(count)"
+        return url
+    }
+    
+    func fetchDogs() {
+        println("fetching a pretty dog")
+        
+        let url = NSURL(string: self.buidUrl())
         
         let session = NSURLSession.sharedSession()
         
@@ -41,8 +91,9 @@ class ViewController: UIViewController {
                 data, options: NSJSONReadingOptions.MutableContainers,
                 error: &e
                 ) as? NSDictionary
+            
             var breed:String = "Mutt"
-            var size: String = "Unkown"
+            var size: String = "Unknown"
             println(json)
             if let petfinder = json?.valueForKey("petfinder") as? NSDictionary {
                 if let pet = petfinder.valueForKey("pet") as? NSDictionary {
@@ -64,15 +115,15 @@ class ViewController: UIViewController {
                             size = _size
                             
                             switch _size {
-                                case "S":
+                            case "S":
                                 size = "Small"
-                                case "M":
+                            case "M":
                                 size = "Medium"
-                                case "L":
+                            case "L":
                                 size = "Large"
-                                case "XL":
+                            case "XL":
                                 size = "Extra Large"
-                                default:
+                            default:
                                 size = "Unkown"
                             }
                         }
@@ -82,7 +133,7 @@ class ViewController: UIViewController {
             }
             
             dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
-                self.dataTextView.text = result
+//                self.dataTextView.text = result
             }
         }
         
@@ -90,3 +141,4 @@ class ViewController: UIViewController {
         dataTask.resume()
     }
 }
+

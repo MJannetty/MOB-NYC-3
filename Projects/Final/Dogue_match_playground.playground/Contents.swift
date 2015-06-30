@@ -23,7 +23,8 @@ class Dog {
     var dogName: String
     var breed: String
     var dogGeoLocation: String
-    //var dogPicture:
+    var dogPictureUrl: String
+    var dogPicture: UIImage?
     
     var favoriteDogs: [User] = []
     
