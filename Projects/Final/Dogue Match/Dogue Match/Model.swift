@@ -19,15 +19,29 @@ class User {
     
 }
 
+class DogCollection {
+    var collection:[Dog] = []
+    static var _dogCollection: DogCollection?
+    static func sharedInstance() -> DogCollection {
+        if let dogs=_dogCollection {
+            return dogs
+        } else {
+            _dogCollection = DogCollection()
+            return _dogCollection!
+        }
+    }
+}
+
 class Dog {
     var location: String
     var breed: String
-    var pictureUrl: String
+    var pictureUrl: String?
     var email: String
     var dogPicture: UIImage?
-    var name: String?
+    var name: String
     
-    init(pictureUrl:String, breed: String, location:String, email:String, dogPicture: UIImage) {
+    init(name: String, pictureUrl:String, breed: String, location:String, email:String) {
+        self.name = name
         self.location = location
         self.pictureUrl = pictureUrl
         self.breed = breed
@@ -39,12 +53,12 @@ class Dog {
 
 class PetFinderApi {
     
-    let base_api_url = "http://api.petfinder.com/pet.find?key=762075e98ad072fbe909d4451bf3b896&anial=dog&format=json&output=full"
+    let base_api_url = "http://api.petfinder.com/pet.find?key=762075e98ad072fbe909d4451bf3b896&animal=dog&format=json&output=full"
 
     var breed: String?
     var size: String?
     var sex: String?
-    var location: String?
+    var location: String? = "10001"
     var age: String?
     var offset: Int?
     var count: Int = 25
@@ -75,28 +89,59 @@ class PetFinderApi {
         return url
     }
     
-    func fetchDogs() {
+    func fetchDogs(onDone:(() -> Void)) {
         println("fetching a pretty dog")
-        
         let url = NSURL(string: self.buidUrl())
-        
+        println(url)
         let session = NSURLSession.sharedSession()
+        let dataTask = session.dataTaskWithURL(url!, completionHandler: {
+            (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+            self.oncompletion(data, response: response, error: error)
+            onDone()
+        })
+        dataTask.resume()
+    }
+    
+    func oncompletion(data: NSData!, response: NSURLResponse!, error: NSError!){
+        println("DONE!")
         
-        func oncompletion(data: NSData!, response: NSURLResponse!, error: NSError!) {
-            println("DONE!")
+        if let err = error {
+            println(err.description)
+        } else {
+            let response = JSON(data: data)
+            if let pets = response["petfinder"]["pets"]["pet"].array {
+                for pet in pets {
+                    println(pet["media"]["photos"]["photo"][0]["$t"].string)
+                    //define Dog objects
+                    var breed : String
+                    if let multi = pet["breeds"]["breed"].array {
+                        breed = multi[0]["$t"].string!
+                    } else {
+                        breed = pet["breeds"]["breed"]["$t"].string!
+                    }
+                    
+                    //only use dogs with photos
+                    if let _pictureUrl = pet["media"]["photos"]["photo"][0]["$t"].string {
+                        var dog = Dog(
+                            name: pet["name"]["$t"].string!,
+                            pictureUrl: _pictureUrl,
+                            breed: breed,
+                            location: location!,
+                            email: pet["contact"]["email"]["$t"].string!
+                        )
+                        DogCollection.sharedInstance().collection.append(dog)
+                    }
+                    //add Dog object to Dog Collection
+                }
+            }
             
-            var result:String = ""
-            var e : NSError? = nil
-            var json = NSJSONSerialization.JSONObjectWithData(
-                data, options: NSJSONReadingOptions.MutableContainers,
-                error: &e
-                ) as? NSDictionary
             
-            var breed:String = "Mutt"
-            var size: String = "Unknown"
-            println(json)
+            /*
+]
+            
             if let petfinder = json?.valueForKey("petfinder") as? NSDictionary {
                 if let pet = petfinder.valueForKey("pet") as? NSDictionary {
+                    
                     if let breeds = pet.valueForKey("breeds") as? NSDictionary {
                         if let _breed = breeds.valueForKey("breed") as? NSDictionary {
                             if let breedFound = _breed.valueForKey("$t") as? String {
@@ -108,6 +153,14 @@ class PetFinderApi {
                                 breed = "\(breedFound) Mix"
                             }
                         }
+                        if let media = pet.valueForKey("media") as? NSDictionary {
+                            if let photos = media.valueForKey ("photos") as? NSDictionary {
+                                if let _photo = photos.valueForKey ("$t") as? String {
+                                    println(_photo)
+                                }
+                            }
+                        }
+                        
                     }
                     
                     if let sizeProperty = pet.valueForKey("size") as? NSDictionary {
@@ -124,21 +177,15 @@ class PetFinderApi {
                             case "XL":
                                 size = "Extra Large"
                             default:
-                                size = "Unkown"
+                                size = "Unknown"
                             }
                         }
                     }
                     result = "The dog was a \(breed). It's size is \(size)."
                 }
             }
-            
-            dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
-//                self.dataTextView.text = result
-            }
+*/
         }
-        
-        let dataTask = session.dataTaskWithURL(url!, completionHandler: oncompletion)
-        dataTask.resume()
+//        dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue() {
     }
 }
-
