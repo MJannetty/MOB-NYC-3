@@ -32,6 +32,55 @@ class DogCollection {
     }
 }
 
+class Favorites {
+    var dogs: [Dog] = []
+    
+    static var _favs: Favorites?
+    
+    static func sharedInstance() -> Favorites {
+        if let favs = _favs {
+            return favs
+        } else {
+            _favs = Favorites()
+            return _favs!
+        }
+    }
+    
+    /*
+    func getPropertyListUrl() -> NSURL {
+        let fileMgr = NSFileManager.defaultManager()
+        
+        let urls = fileMgr.URLsForDirectory(
+            .DocumentDirectory,
+            inDomains: .UserDomainMask
+            )
+        
+        let documentsDirectory = urls.first as! NSURL
+        
+        let myPlist = documentsDirectory.URLByAppendingPathComponent(
+            "myFavoriteDogsList.plist",
+            isDirectory: false
+            )
+        
+        return myPlist
+    }
+    
+    func saveToPlist() {
+        let myFavoriteDogList = NSArray(contentsOfFile: fileUrlString)
+        
+        
+        myFavoriteDogsList.writeToFile(fileUrlString, atomically: true)
+        
+    }
+    
+    func loadFromPlist() {
+        let savedDogs = NSDictionary(contentsOfURL: self.name())
+        println(saveDogs)
+    }
+    */
+
+}
+
 class Dog {
     var location: String
     var breed: String
@@ -47,9 +96,11 @@ class Dog {
         self.breed = breed
         self.email = email
 //        self.dogPicture = SDImages(name: url, url: url)
+        
     }
     
 }
+
 
 class PetFinderApi {
     
@@ -112,6 +163,7 @@ class PetFinderApi {
             if let pets = response["petfinder"]["pets"]["pet"].array {
                 for pet in pets {
                     println(pet["media"]["photos"]["photo"][0]["$t"].string)
+                    
                     //define Dog objects
                     var breed : String
                     if let multi = pet["breeds"]["breed"].array {
@@ -121,16 +173,28 @@ class PetFinderApi {
                     }
                     
                     //only use dogs with photos
-                    if let _pictureUrl = pet["media"]["photos"]["photo"][0]["$t"].string {
-                        var dog = Dog(
-                            name: pet["name"]["$t"].string!,
-                            pictureUrl: _pictureUrl,
-                            breed: breed,
-                            location: location!,
-                            email: pet["contact"]["email"]["$t"].string!
-                        )
-                        DogCollection.sharedInstance().collection.append(dog)
+                    var pictureUrl : String = ""
+                    let allPhotos = pet["media"]["photos"]["photo"].array!
+
+                    for photo in allPhotos {
+                        let size = photo["@size"].string!
+                        if size == "x" {
+                            pictureUrl = photo["$t"].string!
+                            break
+                        }
                     }
+//                    if let _pictureUrl = allPhotos[0]["$t"].string {
+                    
+                    var dog = Dog(
+                        name: pet["name"]["$t"].string!,
+                        pictureUrl: pictureUrl,
+                        breed: breed,
+                        location: location!,
+                        email: pet["contact"]["email"]["$t"].string!
+                    )
+                    DogCollection.sharedInstance().collection.append(dog)
+                    
+//                    }
                     //add Dog object to Dog Collection
                 }
             }
